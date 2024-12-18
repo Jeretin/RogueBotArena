@@ -20,6 +20,15 @@
                     "id": "f32746e7-d1c2-4012-b0fe-08d9db495535",
                     "expectedControlType": "",
                     "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "aac6538f-5f1f-4fe9-be92-29c8393cf102",
+                    "expectedControlType": "",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -88,6 +97,17 @@
                     "processors": "",
                     "groups": ";Keyboard",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82676796-aae5-4c93-9c6a-096971f58358",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

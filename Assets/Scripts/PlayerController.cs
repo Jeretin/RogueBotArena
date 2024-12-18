@@ -1,21 +1,45 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Components
     private PlayerControls playerControls;
+    private InputAction shootAction;
+    private InputAction dashAction;
     private Vector2 move;
     private Animator anim;
     private Rigidbody rb;
-    private GameObject centerPoint;
+    [SerializeField] private GameObject bulletSpawn;
 
+    #endregion
+    #region Player Settings
+
+    [Header("Player Settings")]
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float dashCooldown = 2f;
 
+    [Header("Shooting Settings")]
+    [SerializeField] private float shootCooldown = 0.5f;
+    [SerializeField] private GameObject bulletPrefab;
+
+    // Private player variables
+    private bool isShooting = false;
+    private float shootTimer = 0f;
+    private float dashTimer = 0f;
+
+    #endregion
+
+
+    #region Starting stuff
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        shootAction = playerControls.Gameplay.Shoot;
+        dashAction = playerControls.Gameplay.Dash;
     }
 
     private void OnEnable()
@@ -32,8 +56,32 @@ public class PlayerController : MonoBehaviour
     {
     }
 
+    #endregion
+
     private void Update(){
+
+        #region Input actions
         move = playerControls.Gameplay.Move.ReadValue<Vector2>();
+
+        shootAction.started += ctx => {
+            isShooting = true;
+        };
+        shootAction.canceled += ctx => {
+            isShooting = false;
+        };
+
+        dashAction.performed += ctx => {
+            if (dashTimer <= 0){
+                Dash();
+            } else {
+                Debug.Log("Cooldown: " + dashTimer);
+            }
+
+        };
+        
+        #endregion
+
+        #region Player movement
         // Player movement to direction of rotation
         Vector3 verticalMovement = transform.forward * move.y;
         Vector3 horizontalMovement = transform.right * move.x;
@@ -45,8 +93,21 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement);
         RotatePlayer();
 
-        playerControls.Gameplay.Shoot.performed += ctx => Shoot();
-        
+        #endregion
+
+        // Shooting
+        if(isShooting){
+            if (shootTimer <= 0){
+                Shoot();
+                shootTimer = shootCooldown;
+            }
+            else{
+            }
+        }
+
+        dashTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
+
     }
 
     private void RotatePlayer(){
@@ -58,14 +119,29 @@ public class PlayerController : MonoBehaviour
             Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(lookAt);
         }
-
         // Draw ray
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red); 
     }
 
+
+    #region Mechanichs
     private void Shoot(){
-        Debug.Log("Shoot");
+
+        anim.SetTrigger("Shoot");
+
+        // Instantiate bulletprefab to bulletspawn position
+        Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+
+
+        Debug.Log("is shooting");
     }
 
+    private void Dash(){
+        dashTimer = dashCooldown;
+
+        Debug.Log("Dashing");
+    }
+
+    #endregion
 
 }
