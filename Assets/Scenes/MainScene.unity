@@ -534,6 +534,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1731419986122158661, guid: 7aa6f6434be94e44583bd055d3a42eee, type: 3}
+      propertyPath: dashSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731419986122158661, guid: 7aa6f6434be94e44583bd055d3a42eee, type: 3}
       propertyPath: bulletSpawn
       value: 
       objectReference: {fileID: 1409617943}
@@ -541,6 +545,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 6236303729249450065, guid: 41eddaa6016a46445a1cb082925b542b, type: 3}
+    - target: {fileID: 1731419986122158661, guid: 7aa6f6434be94e44583bd055d3a42eee, type: 3}
+      propertyPath: dashDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1731419986122158661, guid: 7aa6f6434be94e44583bd055d3a42eee, type: 3}
       propertyPath: shootCooldown
       value: 0.2

@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private float speed = 5f;
+
+    [Header("Dash Settings")]
+    [SerializeField] private float dashSpeed = 20f;
+    [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private float dashCooldown = 2f;
 
     [Header("Shooting Settings")]
@@ -26,8 +30,10 @@ public class PlayerController : MonoBehaviour
 
     // Private player variables
     private bool isShooting = false;
+    private bool isDashing = false;
     private float shootTimer = 0f;
     private float dashTimer = 0f;
+    private float realSpeed;
 
     #endregion
 
@@ -54,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        realSpeed = speed;
     }
 
     #endregion
@@ -86,7 +93,7 @@ public class PlayerController : MonoBehaviour
         Vector3 verticalMovement = transform.forward * move.y;
         Vector3 horizontalMovement = transform.right * move.x;
 
-        Vector3 movement = (verticalMovement + horizontalMovement).normalized * speed * Time.deltaTime;
+        Vector3 movement = (verticalMovement + horizontalMovement).normalized * realSpeed * Time.deltaTime;
 
         anim.SetFloat("Speed", move.magnitude);
 
@@ -105,6 +112,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (isDashing){
+            if (dashTimer <= 0){
+                isDashing = false;
+                realSpeed = speed;
+                dashTimer = dashCooldown;
+            } else {
+                dashTimer -= Time.deltaTime;
+            }
+        }
         dashTimer -= Time.deltaTime;
         shootTimer -= Time.deltaTime;
 
@@ -137,7 +153,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Dash(){
-        dashTimer = dashCooldown;
+        realSpeed = dashSpeed;
+        isDashing = true;
+
+        dashTimer = dashDuration;
 
         Debug.Log("Dashing");
     }
