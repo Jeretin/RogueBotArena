@@ -30,11 +30,6 @@ public class BulletBehavior : MonoBehaviour
         rb.linearVelocity = transform.forward * speed;
     }
 
-    public virtual void SpawnBullet(Vector3 spawnPosition, Quaternion spawnRotation, GameObject targetObject){
-        objectToDestroy = targetObject;
-        Instantiate(gameObject, transform.position, transform.rotation);
-    }
-
     public virtual void OnTriggerEnter(Collider col)
     {
         // Destroy the col

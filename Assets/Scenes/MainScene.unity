@@ -498,11 +498,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aa6f6434be94e44583bd055d3a42eee, type: 3}
---- !u!1 &1857001341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5945587494019354147, guid: dd4f2552dabd4a040a74c0314e9c4c90, type: 3}
-  m_PrefabInstance: {fileID: 1866288113}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1866288113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,10 +550,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7048882331674002041, guid: dd4f2552dabd4a040a74c0314e9c4c90, type: 3}
-      propertyPath: bulletSpawn
-      value: 
-      objectReference: {fileID: 1857001341}
+    - target: {fileID: 3016199318534636832, guid: dd4f2552dabd4a040a74c0314e9c4c90, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967506131602679694, guid: dd4f2552dabd4a040a74c0314e9c4c90, type: 3}
+      propertyPath: attackRange
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

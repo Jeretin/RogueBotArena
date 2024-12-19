@@ -10,6 +10,7 @@ public class BaseAIScript : MonoBehaviour
     private bool isShooting = false;
     private float shootTimer = 0f;
     [SerializeField] private float shootCooldown = 0.5f;
+    [SerializeField] private float health = 10f;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject bulletSpawn;
@@ -49,8 +50,13 @@ public class BaseAIScript : MonoBehaviour
 
         // Instantiate bulletprefab to bulletspawn position
         Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+    }
 
-
-        Debug.Log("is shooting");
+    public void TakeDamage(float damage){
+        health -= damage;
+        Debug.Log("Health: " + health);
+        if (health <= 0){
+            Destroy(gameObject);
+        }
     }
 }

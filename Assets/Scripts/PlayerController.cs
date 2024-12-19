@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float health = 10f;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 20f;
@@ -159,6 +160,14 @@ public class PlayerController : MonoBehaviour
         dashTimer = dashDuration;
 
         Debug.Log("Dashing");
+    }
+
+    public void TakeDamage(float damage){
+        health -= damage;
+        Debug.Log(" Player Health: " + health);
+        if (health <= 0){
+            gameObject.SetActive(false);
+        }
     }
 
     #endregion
