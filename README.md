@@ -11,16 +11,21 @@ Goal is to survive as long as possible and kill as many enemies as possible.
 **Type:** 3D Top-Down Shooter
 
 ## Process diary
-### 17.12.2024
-Started the project. I imported assets to project and made repository for the project.
 
-I also made scene, camera and started learning Unity's "new" input system with WASD.
+### 19.12.2024
+Enemy AIs. Game has now two enemies. First one, the most basic is now ready. Another one "Puncher" is still in progress.
+
+Also health systems for player and enemies.
 
 ### 18.12.2024
 More controls implemented and learning about the new input system. 
 
 Player can now shoot and dash.
 
+### 17.12.2024
+Started the project. I imported assets to project and made repository for the project.
+
+I also made scene, camera and started learning Unity's "new" input system with WASD.
 
 
 ## 3rd Party assets
