@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class StateMachine : MonoBehaviour
 {
+    private Animator anim;
+    private NavMeshAgent agent;
     private BaseState currentState;
 
     public ChaseState chaseState = new ChaseState();
@@ -17,12 +20,18 @@ public class StateMachine : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+
         SwitchState(chaseState);    // Start in the chase state
     }
 
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("Speed", agent.GetComponent<NavMeshAgent>().velocity.magnitude);
+
+
         currentState.Update(this);
     }
 
