@@ -1,10 +1,14 @@
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float lifetime = 2f;
+    protected GameObject objectToDestroy;
+    [SerializeField] protected float speed = 10f;
+    [SerializeField] protected float lifetime = 2f;
+    [SerializeField] protected float damage = 1f;
+
 
     void Awake()
     {
@@ -26,9 +30,13 @@ public class BulletBehavior : MonoBehaviour
         rb.linearVelocity = transform.forward * speed;
     }
 
-    private void OnTriggerEnter(Collider col){
+    public virtual void SpawnBullet(Vector3 spawnPosition, Quaternion spawnRotation, GameObject targetObject){
+        objectToDestroy = targetObject;
+        Instantiate(gameObject, transform.position, transform.rotation);
+    }
 
-        // TODO: Kill enemy
-
+    public virtual void OnTriggerEnter(Collider col)
+    {
+        // Destroy the col
     }
 }
