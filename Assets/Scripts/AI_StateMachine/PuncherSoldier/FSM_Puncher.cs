@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,27 +10,32 @@ public class FSM_Puncher : MonoBehaviour
     public ChaseState_Puncher chaseState = new ChaseState_Puncher();
     public AttackState_Puncher attackState = new AttackState_Puncher();
     public TauntState_Puncher tauntState = new TauntState_Puncher();
+    public Patrol_Puncher PatrolState = new Patrol_Puncher();
 
     [HideInInspector] public Animator anim;
     [HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public Transform player;
 
-    public float attackRange = 2.0f;
-    public float walkSpeed = 2.0f;
-    public float attackSpeed = 3.0f;
-    public float stoppingDistance = 1.0f;
-    public float damage = 2f;
+    [HideInInspector] public Transform self;
 
+    public float distanceToAttack = 7.0f;
+    public float dashDuration = 1.0f;
+    public float dashSpeed = 10.0f;
+    public float randomRoamRadius = 10.0f;
+    public float damage = 2.0f;
+
+    void Awake(){
+        anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        self = transform;
+
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        stoppingDistance = agent.stoppingDistance;
-
-        SwitchState(chaseState);    // Start in the chase state
+        SwitchState(chaseState);
     }
 
     // Update is called once per frame
@@ -43,5 +49,10 @@ public class FSM_Puncher : MonoBehaviour
         currentState?.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        currentState.OnCollisionEnter(this, collision);
     }
 }
