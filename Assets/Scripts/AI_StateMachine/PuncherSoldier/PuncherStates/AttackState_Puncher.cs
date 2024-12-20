@@ -7,6 +7,7 @@ public class AttackState_Puncher : BaseState_Puncher
 
     public override void EnterState(FSM_Puncher stateMachine)
     {
+        stateMachine.anim.SetBool("isAttacking", true);
         Debug.Log("Attack State");
         dashTimer = 0.0f;
         stateMachine.agent.isStopped = true; 
@@ -27,6 +28,7 @@ public class AttackState_Puncher : BaseState_Puncher
 
     public override void ExitState(FSM_Puncher stateMachine)
     {
+        stateMachine.anim.SetBool("isAttacking", false);
         stateMachine.previousState = stateMachine.attackState;
 
         stateMachine.agent.Warp(stateMachine.transform.position);
