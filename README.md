@@ -12,6 +12,15 @@ Goal is to survive as long as possible and kill as many enemies as possible.
 
 ## Process diary
 
+### 21.12.2024
+  #### TODO- for future myself
+  - [ ] Spawning system for enemies
+  - [ ] Player death
+  - [ ] Death screen (if time)
+
+### 20.12.2024
+Puncher enemy done. Whole day working with it. Dashing ability for the enemy gave some troubles but it's done now.
+
 ### 19.12.2024
 Enemy AIs. Game has now two enemies. First one, the most basic is now ready. Another one "Puncher" is still in progress.
 
