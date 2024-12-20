@@ -18,11 +18,16 @@ public class FSM_Puncher : MonoBehaviour
 
     [HideInInspector] public Transform self;
 
+    [Header("Movement")]
+    [Tooltip("Radius within character finds a new destination point")]
+    public float randomRoamRadius = 10.0f;
+    [Tooltip("How close the character needs to be to the target to start attacking")]
     public float distanceToAttack = 7.0f;
+
+    [Header("Attack")]
+    public float damage = 2.0f;
     public float dashDuration = 1.0f;
     public float dashSpeed = 10.0f;
-    public float randomRoamRadius = 10.0f;
-    public float damage = 2.0f;
 
     void Awake(){
         anim = GetComponent<Animator>();
