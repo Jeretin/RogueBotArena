@@ -76,10 +76,10 @@ PrefabInstance:
       addedObject: {fileID: 3249079719658872501}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85c1988c9b83e3940a1ab7f4eb41c79c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4725645985075562994}
+      addedObject: {fileID: 1958296671321516392}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85c1988c9b83e3940a1ab7f4eb41c79c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1958296671321516392}
+      addedObject: {fileID: 7433593746312398645}
   m_SourcePrefab: {fileID: 100100000, guid: 85c1988c9b83e3940a1ab7f4eb41c79c, type: 3}
 --- !u!1 &64041933800575575 stripped
 GameObject:
@@ -131,18 +131,6 @@ CapsuleCollider:
   m_Height: 2.6506314
   m_Direction: 1
   m_Center: {x: 0, y: 0.8253157, z: 0}
---- !u!114 &4725645985075562994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64041933800575575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db449aa15cb4294a9dade030159a32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1958296671321516392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +147,23 @@ MonoBehaviour:
   agent: {fileID: 0}
   player: {fileID: 0}
   self: {fileID: 0}
+  randomRoamRadius: 10
   distanceToAttack: 5
+  damage: 2
   dashDuration: 0.25
   dashSpeed: 30
-  randomRoamRadius: 10
-  damage: 2
+--- !u!114 &7433593746312398645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64041933800575575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa6b68d1127c2447944c04a67f76a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  health: 10

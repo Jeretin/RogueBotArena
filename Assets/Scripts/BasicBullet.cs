@@ -8,6 +8,7 @@ public class BasicBullet : BulletBehavior
         if (col.gameObject.CompareTag("Enemy"))
         {
             col.gameObject.GetComponent<SoldierAbilities>().TakeDamage(damage);
+
             Destroy(gameObject);
         }
     }

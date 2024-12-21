@@ -4,9 +4,14 @@ public class SoldierAbilities : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject bulletSpawn;
+    private GameManager gameManager;
 
     [SerializeField] private float health = 10f;
 
+    private void Awake()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     public void ShootAtPlayer()
     {
@@ -19,6 +24,7 @@ public class SoldierAbilities : MonoBehaviour
         Debug.Log("Health: " + health);
         if (health <= 0)
         {
+            gameManager.enemyCount--;
             Destroy(gameObject);
         }
     }

@@ -119,6 +119,129 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &112637133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112637135}
+  - component: {fileID: 112637134}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &112637134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112637133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db99298ab21b0f4429ab67e2c189bac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1706958879}
+  minSpawnDistanceFromPlayer: 10
+  spawnRange: 18
+  difficultyLevels:
+  - enemiesPerCycle: 1
+    maxEnemiesOnGround: 5
+    spawnInterval: 2
+    spawnintervalVariance: 0.2
+    shooterPercentage: 100
+    puncherPercentage: 0
+    waveLength: 5
+  - enemiesPerCycle: 1
+    maxEnemiesOnGround: 5
+    spawnInterval: 1.8
+    spawnintervalVariance: 0.2
+    shooterPercentage: 100
+    puncherPercentage: 0
+    waveLength: 10
+  - enemiesPerCycle: 2
+    maxEnemiesOnGround: 7
+    spawnInterval: 1.8
+    spawnintervalVariance: 0.2
+    shooterPercentage: 80
+    puncherPercentage: 20
+    waveLength: 10
+  - enemiesPerCycle: 2
+    maxEnemiesOnGround: 7
+    spawnInterval: 1.5
+    spawnintervalVariance: 0.2
+    shooterPercentage: 70
+    puncherPercentage: 30
+    waveLength: 15
+  - enemiesPerCycle: 3
+    maxEnemiesOnGround: 10
+    spawnInterval: 1.5
+    spawnintervalVariance: 0.2
+    shooterPercentage: 60
+    puncherPercentage: 40
+    waveLength: 20
+  - enemiesPerCycle: 3
+    maxEnemiesOnGround: 10
+    spawnInterval: 1.2
+    spawnintervalVariance: 0.2
+    shooterPercentage: 50
+    puncherPercentage: 50
+    waveLength: 25
+  - enemiesPerCycle: 3
+    maxEnemiesOnGround: 10
+    spawnInterval: 1
+    spawnintervalVariance: 0
+    shooterPercentage: 40
+    puncherPercentage: 60
+    waveLength: 30
+  - enemiesPerCycle: 4
+    maxEnemiesOnGround: 15
+    spawnInterval: 1.5
+    spawnintervalVariance: 0.2
+    shooterPercentage: 30
+    puncherPercentage: 70
+    waveLength: 35
+  - enemiesPerCycle: 4
+    maxEnemiesOnGround: 15
+    spawnInterval: 1.2
+    spawnintervalVariance: 0.2
+    shooterPercentage: 20
+    puncherPercentage: 80
+    waveLength: 40
+  - enemiesPerCycle: 4
+    maxEnemiesOnGround: 20
+    spawnInterval: 1
+    spawnintervalVariance: 0
+    shooterPercentage: 10
+    puncherPercentage: 90
+    waveLength: 10000
+  enemyPrefabs:
+  - {fileID: 441587721535045495, guid: dd4f2552dabd4a040a74c0314e9c4c90, type: 3}
+  - {fileID: 64041933800575575, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
+  startDifficultyLevel: 0
+  enemyCount: 0
+--- !u!4 &112637135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112637133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14, y: 1.23, z: -64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 1010727769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: 0, z: -64}
+  m_LocalPosition: {x: 12.74, y: 0, z: -41.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -441,63 +564,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1739060667
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 64041933800575575, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_Name
-      value: RobotSoldier_White
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.9316335
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -65.50637
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 840015202121009389, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ca40fe8c8b622894a85b6921d81ff827, type: 3}
+--- !u!1 &1706958879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 193908, guid: 7aa6f6434be94e44583bd055d3a42eee, type: 3}
+  m_PrefabInstance: {fileID: 1760843476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1760843476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -917,4 +988,4 @@ SceneRoots:
   - {fileID: 2601892300014475613}
   - {fileID: 1010727770}
   - {fileID: 1305048213}
-  - {fileID: 1739060667}
+  - {fileID: 112637135}

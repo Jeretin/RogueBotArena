@@ -8,11 +8,13 @@ public class BulletBehavior : MonoBehaviour
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected float lifetime = 2f;
     [SerializeField] protected float damage = 1f;
+    protected GameManager gameManager;
 
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
