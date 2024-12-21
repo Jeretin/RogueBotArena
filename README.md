@@ -11,12 +11,21 @@ Goal is to survive as long as possible and kill as many enemies as possible.
 **Type:** 3D Top-Down Shooter
 
 ## Process diary
+### 22.12.2024
+  #### TODO- for future myself
+  - [ ] Player controls rework
+  - [ ] Point system
+  - [ ] Point system UI
 
 ### 21.12.2024
   #### TODO- for future myself
-  - [ ] Spawning system for enemies
-  - [ ] Player death
-  - [ ] Death screen (if time)
+  - [x] Spawning system for enemies
+  - [x] Player death
+  - [x] Death screen (if time)
+
+Spawning system done in GameManager- script. Enemyspawning works kind of wave style.
+
+Very basic death screen and main menu done.
 
 ### 20.12.2024
 Puncher enemy done. Whole day working with it. Dashing ability for the enemy gave some troubles but it's done now.
@@ -35,6 +44,9 @@ Player can now shoot and dash.
 Started the project. I imported assets to project and made repository for the project.
 
 I also made scene, camera and started learning Unity's "new" input system with WASD.
+
+## Bug list
+- [ ]  Some of the walls does not have colliders
 
 
 ## 3rd Party assets
