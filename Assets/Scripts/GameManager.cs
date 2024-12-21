@@ -4,20 +4,27 @@ using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject deathScreen;
+
+    [Header("Game Settings")]
     [SerializeField] private float minSpawnDistanceFromPlayer = 10.0f;
     [SerializeField] private float spawnRange = 10.0f;
     [SerializeField] private DifficultyLevel[] difficultyLevels = null;
     [SerializeField] private GameObject[] enemyPrefabs = null;
+
+    [Header("Debug")]
     [Tooltip("The lowest difficulty level is 0")]
     [SerializeField] private int startDifficultyLevel = 0;
-    
+
+    #region Hidden attributes
     [HideInInspector] public int enemyCount = 0;
     private int spawnedEnemies = 0;
     private float spawnTimer = 0.0f;
     private float timeAlive = 0.0f;
     private int currentDifficultyLevel = 0;
+    #endregion
 
     private void Start()
     {
