@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject deathScreen;
     [SerializeField] private float minSpawnDistanceFromPlayer = 10.0f;
     [SerializeField] private float spawnRange = 10.0f;
     [SerializeField] private DifficultyLevel[] difficultyLevels = null;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         // Start the game with the first difficulty level
         currentDifficultyLevel = startDifficultyLevel;
+        Time.timeScale = 1.0f;
     }
 
     private void Update(){
@@ -102,6 +104,10 @@ public class GameManager : MonoBehaviour
         }
 
         return enemyPrefabs[0];
+    }
+
+    public void PlayerDied(){
+        deathScreen.SetActive(true);
     }
     
     

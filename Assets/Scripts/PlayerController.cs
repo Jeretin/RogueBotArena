@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
     [SerializeField] private GameObject bulletSpawn;
+    [SerializeField] private GameManager gameManager;
 
     #endregion
     #region Player Settings
@@ -166,7 +167,8 @@ public class PlayerController : MonoBehaviour
         health -= damage;
         Debug.Log(" Player Health: " + health);
         if (health <= 0){
-            gameObject.SetActive(false);
+            gameManager.PlayerDied();
+            Time.timeScale = 0;
         }
     }
 
