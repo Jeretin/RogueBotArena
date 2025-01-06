@@ -91,7 +91,10 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region Player movement
-        // Player movement to direction of rotation
+        
+
+        #region Player movement depending on rotation (not used)
+        /*
         Vector3 verticalMovement = transform.forward * move.y;
         Vector3 horizontalMovement = transform.right * move.x;
 
@@ -100,7 +103,19 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", move.magnitude);
 
         rb.MovePosition(rb.position + movement);
+
+        */
+
+        #endregion
+
+        #region Player movement not depending on rotation (used)
+        // Player movement not depending on rotation
+        Vector3 movement = new Vector3(move.y, 0, move.x) * realSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement);
+
         RotatePlayer();
+
+        #endregion
 
         #endregion
 
