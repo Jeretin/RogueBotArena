@@ -9,6 +9,7 @@ public class BasicBullet : BulletBehavior
         {
             col.gameObject.GetComponent<SoldierAbilities>().TakeDamage(damage);
 
+            gameManager.AddBulletHitted();
             Destroy(gameObject);
         }
     }

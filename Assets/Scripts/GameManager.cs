@@ -18,12 +18,25 @@ public class GameManager : MonoBehaviour
     [Tooltip("The lowest difficulty level is 0")]
     [SerializeField] private int startDifficultyLevel = 0;
 
+    [Header("User Interface")]
+    [Header("Gameplay")]
+    [SerializeField] private TMPro.TextMeshProUGUI scoreText = null;
+    [SerializeField] private TMPro.TextMeshProUGUI timeAliveText = null;
+
+    [Header("Death screen")]
+    [SerializeField] private TMPro.TextMeshProUGUI finalScoreText = null;
+    [SerializeField] private TMPro.TextMeshProUGUI enemiesKilledText = null;
+
     #region Hidden attributes
     [HideInInspector] public int enemyCount = 0;
     private int spawnedEnemies = 0;
     private float spawnTimer = 0.0f;
     private float timeAlive = 0.0f;
     private int currentDifficultyLevel = 0;
+    private int score = 0;
+    private int enemiesKilled = 0;
+    private int bulletsHitted = 0;
+    private int bulletsShot = 0;
     #endregion
 
     private void Start()
@@ -31,6 +44,7 @@ public class GameManager : MonoBehaviour
         // Start the game with the first difficulty level
         currentDifficultyLevel = startDifficultyLevel;
         Time.timeScale = 1.0f;
+        scoreText.text = "Score: " + score;
     }
 
     private void Update(){
@@ -51,6 +65,7 @@ public class GameManager : MonoBehaviour
         #region Timers
 
         timeAlive += Time.deltaTime;
+        timeAliveText.text = "Time Alive: " + timeAlive.ToString("F1");
         spawnTimer += Time.deltaTime;
 
         #endregion
@@ -80,6 +95,7 @@ public class GameManager : MonoBehaviour
         currentDifficultyLevel = 0;
         timeAlive = 0.0f;
         enemyCount = 0;
+        score = 0;
     }
 
     Vector3 GetRandomNavmeshLocation(float range){
@@ -114,8 +130,27 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDied(){
+        finalScoreText.text = score.ToString();
+        enemiesKilledText.text = enemiesKilled.ToString();
+
         deathScreen.SetActive(true);
     }
-    
+
+    public void AddScore(int points){
+        score += points;
+        scoreText.text = "Score: " + score;
+    }
+
+    public void AddEnemyKilled(){
+        enemiesKilled++;
+    }
+
+    public void AddBulletHitted(){
+        bulletsHitted++;
+    }
+
+    public void AddBulletShot(){
+        bulletsShot++;
+    }
     
 }

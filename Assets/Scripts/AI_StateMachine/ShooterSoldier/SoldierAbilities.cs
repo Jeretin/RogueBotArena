@@ -7,6 +7,7 @@ public class SoldierAbilities : MonoBehaviour
     private GameManager gameManager;
 
     [SerializeField] private float health = 10f;
+    [SerializeField] private int pointsGiven = 100;
 
     private void Awake()
     {
@@ -25,6 +26,8 @@ public class SoldierAbilities : MonoBehaviour
         if (health <= 0)
         {
             gameManager.enemyCount--;
+            gameManager.AddScore(pointsGiven);
+            gameManager.AddEnemyKilled();
             Destroy(gameObject);
         }
     }

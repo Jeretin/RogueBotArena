@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
 
         anim.SetTrigger("Shoot");
 
+        gameManager.AddBulletShot();
         // Instantiate bulletprefab to bulletspawn position
         Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
 
