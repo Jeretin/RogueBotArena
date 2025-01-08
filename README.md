@@ -11,6 +11,12 @@ Goal is to survive as long as possible and kill as many enemies as possible.
 **Type:** 3D Top-Down Shooter
 
 ## Process diary
+### 8.1.2025
+  ### TODO- for future & present myself
+  - [ ] Pause
+  - [ ] Health UI
+  - [ ] Audio
+        
 ### 6.1.2025
   #### TODO- for future myself
   - [x] Player controls rework
@@ -47,6 +53,8 @@ I also made scene, camera and started learning Unity's "new" input system with W
 
 ## Bug list
 - [ ]  Some of the walls does not have colliders
+- [ ]  If player goes too close to enemy, enemy animations bugs
+- [ ]  Player animations not working
 
 
 ## 3rd Party assets
