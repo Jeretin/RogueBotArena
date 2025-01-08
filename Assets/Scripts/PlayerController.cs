@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private PlayerControls playerControls;
     private InputAction shootAction;
     private InputAction dashAction;
+    private InputAction pauseAction;
     private Vector2 move;
     private Animator anim;
     private Rigidbody rb;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         shootAction = playerControls.Gameplay.Shoot;
         dashAction = playerControls.Gameplay.Dash;
+        pauseAction = playerControls.Gameplay.Pause;
     }
 
     private void OnEnable()
@@ -86,6 +88,10 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Cooldown: " + dashTimer);
             }
 
+        };
+
+        pauseAction.performed += ctx => {
+            gameManager.PauseGame();
         };
         
         #endregion

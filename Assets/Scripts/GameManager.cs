@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI finalScoreText = null;
     [SerializeField] private TMPro.TextMeshProUGUI enemiesKilledText = null;
 
+    [Header("Pause menu")]
+    [SerializeField] private GameObject pauseMenu = null;
+
     #region Hidden attributes
     [HideInInspector] public int enemyCount = 0;
     private int spawnedEnemies = 0;
@@ -151,6 +154,16 @@ public class GameManager : MonoBehaviour
 
     public void AddBulletShot(){
         bulletsShot++;
+    }
+
+    public void PauseGame(){
+        Time.timeScale = 0.0f;
+        pauseMenu.SetActive(true);
+    }
+
+    public void UnPauseGame(){
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
     }
     
 }
