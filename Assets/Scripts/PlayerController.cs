@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private GameObject bulletSpawn;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private Slider healthBar;
 
     #endregion
     #region Player Settings
@@ -187,6 +189,10 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage){
         health -= damage;
+        // if healthbar is not null, update it
+        if (healthBar != null){
+            healthBar.value = health/10;
+        }
         Debug.Log(" Player Health: " + health);
         if (health <= 0){
             gameManager.PlayerDied();
