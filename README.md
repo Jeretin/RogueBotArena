@@ -11,11 +11,11 @@ Goal is to survive as long as possible and kill as many enemies as possible.
 **Type:** 3D Top-Down Shooter
 
 ## Process diary
-### 22.12.2024
+### 6.1.2025
   #### TODO- for future myself
-  - [ ] Player controls rework
-  - [ ] Point system
-  - [ ] Point system UI
+  - [x] Player controls rework
+  - [x] Point system
+  - [x] Point system UI
 
 ### 21.12.2024
   #### TODO- for future myself
